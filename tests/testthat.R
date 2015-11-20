@@ -1,4 +1,4 @@
 library(testthat)
-library(distanceParllel)
+library(distanceParallel)
 
-test_check("distanceParllel")
+test_check("distanceParallel")
