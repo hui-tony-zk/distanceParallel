@@ -1,14 +1,14 @@
-Package: distanceParallel
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1
-Date: 2015-11-20
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
-LazyData: TRUE
-URL: https://github.com/hui-tony-zk/distanceParallel
-BugReports: https://github.com/hui-tony-zk/distanceParallel/issues
-Imports: foreach,
+Package: distanceParllel
+Title: Creates distance matrix in parallel
+Version: 0.0.0.9000
+Authors@R: person("Tony", "Hui", email = "tony.hui@ubc.ca", role = c("aut", "cre"))
+Description: dist(x) in base R only operates on one thread. Using the foreach package, we can now create distance matrixes in parallel.
+Depends: 
+    R (>= 3.2.2)
+License: MIT + file LICENSE
+LazyData: true
+Imports: 
     doMC,
-    parallel
+    parallel,
+    foreach
+RoxygenNote: 5.0.1
