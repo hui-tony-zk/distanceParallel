@@ -8,6 +8,7 @@
 #' @examples
 #' divide_cores(total = 1000)
 divide_cores <- function(total, ncores = 1) {
+  if (!(is.numeric(total) | is.integer(total))) stop("'total' must be a ONE number")
   if (ncores == 1) {
     return(data.frame(from = 1, to = total))
   } else {

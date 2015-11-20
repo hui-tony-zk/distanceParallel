@@ -4,12 +4,12 @@
 \alias{create_pairwise_comparisons}
 \title{Create pairwise comparisons by row or column}
 \usage{
-create_pairwise_comparisons(matrix, ncores = NULL, by = "row")
+create_pairwise_comparisons(matrix, ncores = 1, by = "row")
 }
 \arguments{
 \item{matrix}{a matrix or data.frame containing samples and observations}
 
-\item{ncores}{number of cores to parallelize by. Defaults to number of cores detected on your machine}
+\item{ncores}{number of cores to parallelize by. Defaults to single-core}
 
 \item{by}{either "row" or "column", to specify if rows or columns are samples. Defaults to "row"}
 }

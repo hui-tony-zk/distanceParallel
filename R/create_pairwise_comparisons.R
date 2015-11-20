@@ -1,7 +1,7 @@
 #' Create pairwise comparisons by row or column
 #'
 #' @param matrix a matrix or data.frame containing samples and observations
-#' @param ncores number of cores to parallelize by. Defaults to number of cores detected on your machine
+#' @param ncores number of cores to parallelize by. Defaults to single-core
 #' @param by either "row" or "column", to specify if rows or columns are samples. Defaults to "row"
 #'
 #' @return a list of data.frames
@@ -10,11 +10,10 @@
 #' @examples
 #' matrix <- replicate(20, rnorm(10))
 #' create_pairwise_comparisons(matrix, ncores = 1) #not allowed to have parallel examples
-create_pairwise_comparisons <- function(matrix, ncores = NULL, by = "row"){
+create_pairwise_comparisons <- function(matrix, ncores = 1, by = "row"){
   if (!(is.matrix(matrix) | is.data.frame(matrix))) stop("'matrix' must be a matrix or data frame")
-  if (is.null(ncores)) ncores <- parallel::detectCores()
   if (ncores > parallel::detectCores()) {
-    warning(paste("Warning! You specified", ncores, "cores, but we only detected", parallel::detectCores(), "cores. Double-check your ncores, or ignore this message if you're sure"))
+    stop(paste("Warning! You specified", ncores, "cores, but we only detected", parallel::detectCores(), "cores."))
   }
 
   # Generate combinations
