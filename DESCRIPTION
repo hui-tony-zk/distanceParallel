@@ -9,3 +9,6 @@ License: What license is it under?
 LazyData: TRUE
 URL: https://github.com/hui-tony-zk/distanceParallel
 BugReports: https://github.com/hui-tony-zk/distanceParallel/issues
+Imports: foreach,
+    doMC,
+    parallel
