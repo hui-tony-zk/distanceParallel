@@ -4,7 +4,8 @@
 \alias{create_pairwise_comparisons}
 \title{Create pairwise comparisons by row or column}
 \usage{
-create_pairwise_comparisons(matrix, ncores = 1, by = "row")
+create_pairwise_comparisons(matrix, ncores = 1, by = "row",
+  distfun = function(x1, x2) sqrt(sum((x1 - x2)^2)))
 }
 \arguments{
 \item{matrix}{a matrix or data.frame containing samples and observations}
@@ -12,6 +13,8 @@ create_pairwise_comparisons(matrix, ncores = 1, by = "row")
 \item{ncores}{number of cores to parallelize by. Defaults to single-core}
 
 \item{by}{either "row" or "column", to specify if rows or columns are samples. Defaults to "row"}
+
+\item{distfun}{a function used to calculate distance between any pairwise comparisons. Defaults to sqrt(sum((x1 - x2) ^ 2)) (euclidian distance)}
 }
 \value{
 a list of data.frames

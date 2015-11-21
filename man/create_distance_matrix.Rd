@@ -4,17 +4,12 @@
 \alias{create_distance_matrix}
 \title{Title}
 \usage{
-create_distance_matrix(pairwise, ncores = 1, diag_val = 0,
-  distfun = function(x1, x2) sqrt(sum((x1 - x2)^2)))
+create_distance_matrix(pairwise_dist, diag_val = 0)
 }
 \arguments{
-\item{pairwise}{a list of pairwise comparisons from create_pairwise_comparisons}
-
-\item{ncores}{number of cores to parallelize this, defaults to single-core}
+\item{pairwise_dist}{a list of pairwise comparisons from create_pairwise_comparisons}
 
 \item{diag_val}{value of the diagonal, defaults to 0 (0 distance)}
-
-\item{distfun}{a function used to calculate distance between any pairwise comparisons. Defaults to sqrt(sum((x1 - x2) ^ 2)) (euclidian distance)}
 }
 \value{
 a distance matrix

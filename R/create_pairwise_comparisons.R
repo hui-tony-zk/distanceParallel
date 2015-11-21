@@ -3,6 +3,7 @@
 #' @param matrix a matrix or data.frame containing samples and observations
 #' @param ncores number of cores to parallelize by. Defaults to single-core
 #' @param by either "row" or "column", to specify if rows or columns are samples. Defaults to "row"
+#' @param distfun a function used to calculate distance between any pairwise comparisons. Defaults to sqrt(sum((x1 - x2) ^ 2)) (euclidian distance)
 #'
 #' @return a list of data.frames
 #' @importFrom foreach "%dopar%"
