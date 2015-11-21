@@ -11,7 +11,8 @@ Imports:
     doMC,
     parallel,
     foreach,
-    tidyr
+    tidyr,
+    data.table
 RoxygenNote: 5.0.1
 Suggests: testthat,
     knitr,
