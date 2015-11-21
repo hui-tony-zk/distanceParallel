@@ -4,6 +4,8 @@ If you do `?dist` you'll see that there are only a few (but common) methods for 
 
 This package is designed to do just that - calculate arbitrary distances between all pairwise comparisosn of either rows or columns of a matrix. Using `foreach` and `doMC`, these calculations are parallized for faster runtimes.
 
+### Warning: due to the usage of `doMC`, this package does not work on windows machines
+
 ### Main functions
 
 #### `divide_cores()`
