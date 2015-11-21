@@ -1,0 +1,30 @@
+---
+title: "Vignette for distanceParallel"
+author: "Tony Hui"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## Create a dummy distance matrix
+
+```{r}
+library(distanceParallel)
+
+matrix <- replicate(20, rnorm(10))
+```
+
+## Create a distance matrix using `dist`
+
+```{r}
+system.time(x <- dist(matrix))
+```
+
+## Create a distance matrix using `distanceParallel`
+
+```{r}
+system.time(y <- create_distance_matrix(create_pairwise_comparisons(matrix, ncores = 4), ncores = 4))
+```
