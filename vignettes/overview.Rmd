@@ -11,20 +11,18 @@ vignette: >
 
 ## Create a dummy distance matrix
 
-```
+```{r}
 library(distanceParallel)
 
-matrix <- replicate(20, rnorm(10))
+matrix <- replicate(50, rnorm(50)) #50 x 50 matrix
 ```
 
-## Create a distance matrix using `dist`
+## Create a distance matrix using `distanceParallel` and a custom distance function
 
-```
-system.time(x <- dist(matrix))
-```
+```{r}
+y <- create_pairwise_comparisons(
+  matrix, ncores = 4, 
+  distfun = function(x1, x2) sqrt(sum((x1 - x2) ^ 2)))
 
-## Create a distance matrix using `distanceParallel`
-
-```
-system.time(y <- create_distance_matrix(create_pairwise_comparisons(matrix, ncores = 4), ncores = 4))
+y <- create_distance_matrix(pairwise_dist = y, diag_val = 0)
 ```

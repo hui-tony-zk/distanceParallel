@@ -1,13 +1,18 @@
 Package: distanceParallel
-Title: Creates distance matrix in parallel
+Title: Creates distance matrix with custom distance function in parallel
 Version: 0.0.0.9000
 Authors@R: person("Tony", "Hui", email = "tony.hui@ubc.ca", role = c("aut", "cre"))
-Description: dist(x) in base R only operates on one thread. Using the foreach package, we can now create distance matrixes in parallel.
-Depends: 
+Description: dist(x) in base R only has a few methods.
+  If you want to calculate distance with some arbitrary measure
+  (eg simple matching coefficient, or cosine distance), then too bad for you.
+  This package creates all pairwise comparisons between samples and calculates
+  the distance with any arbitrary distance function. Using the foreach package,
+  this calculation is done in parallel.
+Depends:
     R (>= 3.2.2)
 License: MIT + file LICENSE
 LazyData: true
-Imports: 
+Imports:
     doMC,
     parallel,
     foreach,
